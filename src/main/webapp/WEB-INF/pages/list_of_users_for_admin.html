@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<h1>Users</h1>
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Roles</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="user: ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.secondName}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:each="role: ${user.roles}" th:text="${role.toString()}"></td>
+        <td><a th:href="@{/user/edit (id = ${user.id})}"><button type="submit" value="edit">edit</button></a></td>
+        <td><a th:href="@{/user/delete (id = ${user.id})}"><button type="submit" value="delete">delete</button></a></td>
+<!--        <td><form  hidden th:object="user" method="post" ><a th:href="@{/user/delete}"><button type="submit" value="delete">delete</button></a></form></td>-->
+    </tr>
+</table>
+
+<a th:href="@{/user/new}"><button>Add user</button></a>
+<br>
+<br>
+<br>
+<a th:href="@{/logout}"><button>Logout</button></a>
+
+</body>
+</html>
+</html>

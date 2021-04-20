@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<h4><a th:href="@{/user}">Show all users</a></h4>
+<h4><a th:href="@{/admin}">Show all users for admin</a></h4>
+</body>
+</html>
